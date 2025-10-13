@@ -1,6 +1,8 @@
 name: "Code scanning - action"
 permissions:
+  actions: read
   contents: read
+  security-events: write
 
 on:
   push:
@@ -33,6 +35,9 @@ jobs:
       # Override language selection by uncommenting this and choosing your languages
       # with:
       #   languages: go, javascript, csharp, python, cpp, java
+
+    - name: Install GitBook CLI
+      run: npm install -g gitbook-cli
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
